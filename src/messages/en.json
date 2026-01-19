@@ -1,0 +1,57 @@
+{
+  "Login": {
+    "title": "Admin Login",
+    "email": "Email Address",
+    "password": "Password",
+    "submit": "Login",
+    "forgot_password": "Forgot Password?",
+    "remember_me": "Remember Me"
+  },
+  "TwoFA": {
+    "title": "Two-Factor Authentication",
+    "instruction": "Enter the 6-digit code sent to your device",
+    "submit": "Verify",
+    "resend": "Resend Code"
+  },
+  "Dashboard": {
+    "title": "Dashboard Overview",
+    "stats": {
+      "users": "Total Users",
+      "revenue": "Total Revenue",
+      "orders": "New Orders",
+      "active": "Active Sessions"
+    },
+    "map": {
+      "title": "User Locations"
+    }
+  },
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "Users": {
+    "title": "User Management",
+    "add_user": "Add New User"
+  },
+  "Settings": {
+    "title": "Account Settings",
+    "subtitle": "Manage your profile, security and notification preferences",
+    "profile_settings": "Profile Settings",
+    "name": "Full Name",
+    "email": "Email Address",
+    "save_profile": "Save Profile",
+    "security_settings": "Security Settings",
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "confirm_password": "Confirm Password",
+    "update_password": "Update Password",
+    "notification_settings": "Notification Settings",
+    "email_notifications": "Email Notifications",
+    "push_notifications": "Push Notifications",
+    "danger_zone": "Danger Zone",
+    "danger_description": "Once you delete your account, there is no going back. Please be certain.",
+    "delete_account": "Delete Account"
+  }
+}

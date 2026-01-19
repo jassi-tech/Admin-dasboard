@@ -1,0 +1,95 @@
+@use 'variables' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+        'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+    background-color: $background-color;
+    color: $text-primary;
+}
+
+body {
+    line-height: 1.5;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+        color: $primary-hover;
+    }
+}
+
+.admin-layout {
+    min-height: 100vh;
+}
+
+.admin-content {
+    margin: $spacing-lg;
+    padding: $spacing-lg;
+    background: #fff;
+    border-radius: $border-radius-base;
+    min-height: 280px;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+// Utility Classes
+.text-center {
+    text-align: center;
+}
+
+.mt-sm {
+    margin-top: $spacing-sm;
+}
+
+.mt-md {
+    margin-top: $spacing-md;
+}
+
+.mt-lg {
+    margin-top: $spacing-lg;
+}
+
+.mb-sm {
+    margin-bottom: $spacing-sm;
+}
+
+.mb-md {
+    margin-bottom: $spacing-md;
+}
+
+.mb-lg {
+    margin-bottom: $spacing-lg;
+}
+
+// Responsive Adjustments
+@media (max-width: $screen-sm) {
+    .admin-content {
+        margin: $spacing-sm;
+        padding: $spacing-sm;
+    }
+}

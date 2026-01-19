@@ -1,0 +1,42 @@
+// Color Palette
+$primary-color: #1890ff;
+$primary-hover: #40a9ff;
+$secondary-color: #722ed1;
+$success-color: #52c41a;
+$warning-color: #faad14;
+$error-color: #f5222d;
+$background-color: #f0f2f5;
+$sidebar-bg: #001529;
+$sidebar-text: rgba(255, 255, 255, 0.65);
+$sidebar-active-text: #fff;
+$sidebar-active-bg: #1890ff;
+
+// Text Colors
+$text-primary: rgba(0, 0, 0, 0.85);
+$text-secondary: rgba(0, 0, 0, 0.45);
+$text-inverse: #fff;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Border Radius
+$border-radius-base: 4px;
+$border-radius-sm: 2px;
+
+// Shadows
+$box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+// Transitions
+$transition-base: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// Responsive Breakpoints
+$screen-xs: 480px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1600px;
