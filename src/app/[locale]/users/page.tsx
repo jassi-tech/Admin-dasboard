@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import MainLayout from '@/components/layout/MainLayout';
 import AdminCard from '@/components/common/AdminCard';
 import { UserAddOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import styles from './users.module.scss';
 
 const { Title } = Typography;
 
@@ -134,8 +135,8 @@ const UsersPage = () => {
 
     return (
         <MainLayout>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-                <Title level={2}>{t('title')}</Title>
+            <div className={styles.usersHeader}>
+                <Title level={2} className={styles.title}>{t('title')}</Title>
                 <Button type="primary" icon={<UserAddOutlined />} onClick={showModal}>
                     {t('add_user')}
                 </Button>
@@ -166,7 +167,7 @@ const UsersPage = () => {
                         ]} />
                     </Form.Item>
                     <Form.Item>
-                        <Space style={{ width: '100%', justifyContent: 'flex-end' }}>
+                        <Space className={styles.modalFooter}>
                             <Button onClick={handleCancel}>Cancel</Button>
                             <Button type="primary" htmlType="submit">Submit</Button>
                         </Space>

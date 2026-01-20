@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from '@/navigation';
 import AdminCard from '@/components/common/AdminCard';
 import { setCookie } from 'cookies-next';
+import styles from './twofa.module.scss';
 
 const { Title, Paragraph } = Typography;
 
@@ -50,17 +51,11 @@ const TwoFAPage = () => {
   };
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      minHeight: '100vh',
-      background: '#f0f2f5'
-    }}>
-      <AdminCard style={{ width: 400, textAlign: 'center' }}>
+    <div className={styles.twofaWrapper}>
+      <AdminCard className={styles.twofaCard}>
         <Title level={2}>{t('title')}</Title>
         <Paragraph>{t('instruction')}</Paragraph>
-        <div style={{ marginBottom: 24 }}>
+        <div className={styles.otpContainer}>
           <Input.OTP 
             length={6} 
             value={otp} 
@@ -78,7 +73,7 @@ const TwoFAPage = () => {
         </Button>
         <Button 
           type="link" 
-          style={{ marginTop: 16 }}
+          className={styles.resendButton}
         >
           {t('resend')}
         </Button>

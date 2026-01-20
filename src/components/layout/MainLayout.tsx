@@ -7,6 +7,7 @@ import { useRouter, usePathname } from '@/navigation';
 import { useLocale } from 'next-intl';
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Space, Typography } from 'antd';
+import styles from './MainLayout.module.scss';
 
 const { Header, Content, Footer } = Layout;
 const { Text } = Typography;
@@ -29,25 +30,17 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   if (!isMounted) return null;
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout className={styles.mainLayout}>
       <Sidebar />
       <Layout>
-        <Header style={{ 
-          background: '#fff', 
-          padding: '0 24px', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'space-between',
-          boxShadow: '0 1px 4px rgba(0,21,41,.08)',
-          zIndex: 1
-        }}>
+        <Header className={styles.header}>
           <div>
-            <Text strong style={{ fontSize: '18px' }}>Admin Dashboard</Text>
+            <Text strong className={styles.headerTitle}>Admin Dashboard</Text>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className={styles.headerActions}>
             <Select 
               defaultValue={locale} 
-              style={{ width: 110, marginRight: 24 }} 
+              className={styles.langSelector} 
               onChange={handleLanguageChange}
               options={[
                 { value: 'en', label: '🇬🇧 English' },
@@ -55,15 +48,15 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
               ]}
             />
             <Space size="middle">
-              <Text type="secondary">Admin User</Text>
-              <Avatar icon={<UserOutlined />} style={{ backgroundColor: '#1890ff' }} />
+              <Text type="secondary" className={styles.userName}>Admin User</Text>
+              <Avatar icon={<UserOutlined />} className={styles.userAvatar} />
             </Space>
           </div>
         </Header>
-        <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', borderRadius: 8 }}>
+        <Content className={styles.content}>
           {children}
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
+        <Footer className={styles.footer}>
           Admin Dashboard ©{new Date().getFullYear()}
         </Footer>
       </Layout>

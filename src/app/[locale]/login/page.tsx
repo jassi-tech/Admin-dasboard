@@ -6,6 +6,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/navigation';
 import AdminCard from '@/components/common/AdminCard';
+import styles from './login.module.scss';
 
 const { Title } = Typography;
 
@@ -42,15 +43,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      minHeight: '100vh',
-      background: '#f0f2f5'
-    }}>
-      <AdminCard style={{ width: 400 }}>
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
+    <div className={styles.loginWrapper}>
+      <AdminCard className={styles.loginCard}>
+        <div className={styles.loginHeader}>
           <Title level={2}>{t('title')}</Title>
         </div>
         <Form
@@ -75,7 +70,7 @@ const LoginPage = () => {
             <Form.Item name="remember" valuePropName="checked" noStyle>
               <Checkbox>{t('remember_me')}</Checkbox>
             </Form.Item>
-            <a style={{ float: 'right' }} href="">
+            <a className={styles.forgotPassword} href="">
               {t('forgot_password')}
             </a>
           </Form.Item>

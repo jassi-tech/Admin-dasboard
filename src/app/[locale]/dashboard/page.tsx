@@ -13,9 +13,11 @@ import { useTranslations } from 'next-intl';
 import MainLayout from '@/components/layout/MainLayout';
 import AdminCard from '@/components/common/AdminCard';
 import AdminTable from '@/components/common/AdminTable';
+import styles from './dashboard.module.scss';
+
 const UserMap = dynamic(() => import('@/components/common/UserMap'), { 
   ssr: false,
-  loading: () => <div style={{ height: '400px', background: '#f0f2f5', borderRadius: '8px' }} />
+  loading: () => <div className={styles.mapPlaceholder} />
 });
 
 const { Title } = Typography;
@@ -51,18 +53,18 @@ const DashboardPage = () => {
   ];
 
   if (!isMounted) {
-    return null; // Don't render anything on server to avoid hydration mismatch
+    return null; 
   }
 
   return (
     <MainLayout>
       {loading ? (
-        <div style={{ padding: '50px', textAlign: 'center' }}>Loading...</div>
+        <div className={styles.loadingWrapper}>Loading...</div>
       ) : !data ? (
-        <div style={{ padding: '50px', textAlign: 'center' }}>Error loading dashboard data</div>
+        <div className={styles.errorWrapper}>Error loading dashboard data</div>
       ) : (
         <>
-          <Title level={2}>{t('title')}</Title>
+          <Title level={2} className={styles.dashboardHeader}>{t('title')}</Title>
           
           <Row gutter={[16, 16]}>
             <Col xs={24} sm={12} lg={6}>
@@ -105,7 +107,7 @@ const DashboardPage = () => {
             </Col>
           </Row>
 
-          <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
+          <Row gutter={[16, 16]} className={styles.mapRow}>
             <Col xs={24} lg={16}>
               <AdminCard title={t('map.title')}>
                 <UserMap />

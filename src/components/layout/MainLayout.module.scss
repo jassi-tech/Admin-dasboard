@@ -1,0 +1,77 @@
+@use '@/styles/variables' as *;
+
+.mainLayout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.header {
+    background: $text-inverse !important;
+    padding: 0 $spacing-lg !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+    height: 64px !important;
+    min-height: 64px !important;
+    line-height: normal !important;
+    z-index: 10;
+
+    @media (max-width: $screen-sm) {
+        padding: 0 $spacing-md !important;
+    }
+
+    .headerTitle {
+        font-size: 18px !important;
+        margin: 0 !important;
+
+        @media (max-width: $screen-xs) {
+            font-size: 16px !important;
+            display: none;
+        }
+    }
+
+    .headerActions {
+        display: flex;
+        align-items: center;
+
+        .langSelector {
+            width: 110px;
+            margin-right: $spacing-lg;
+
+            @media (max-width: $screen-sm) {
+                width: 90px;
+                margin-right: $spacing-md;
+            }
+        }
+
+        .userName {
+            @media (max-width: 640px) {
+                display: none;
+            }
+        }
+
+        .userAvatar {
+            background-color: $primary-color;
+        }
+    }
+}
+
+.content {
+    margin: $spacing-lg $spacing-md !important;
+    padding: $spacing-lg !important;
+    background: $text-inverse !important;
+    border-radius: $spacing-sm !important;
+    flex: 1;
+    overflow-x: hidden;
+
+    @media (max-width: $screen-md) {
+        margin: $spacing-sm $spacing-xs !important;
+        padding: $spacing-md !important;
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: $spacing-md;
+}

@@ -7,9 +7,11 @@ import {
   UserOutlined,
   SettingOutlined,
   LogoutOutlined,
+  ProjectOutlined,
 } from '@ant-design/icons';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/navigation';
+import styles from './Sidebar.module.scss';
 
 const { Sider } = Layout;
 
@@ -20,7 +22,7 @@ const Sidebar = () => {
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
 
-  const menuItems = [
+  const topMenuItems = [
     {
       key: '/dashboard',
       icon: <DashboardOutlined />,
@@ -31,6 +33,14 @@ const Sidebar = () => {
       icon: <UserOutlined />,
       label: <Link href="/users">{t('users')}</Link>,
     },
+    {
+      key: '/projects',
+      icon: <ProjectOutlined />,
+      label: <Link href="/projects">{t('projects')}</Link>,
+    },
+  ];
+
+  const bottomMenuItems = [
     {
       key: '/settings',
       icon: <SettingOutlined />,
@@ -67,28 +77,32 @@ const Sidebar = () => {
       onCollapse={(value) => setCollapsed(value)}
       breakpoint="lg"
       theme="dark"
-      width={250}
+      width={260}
+      className={styles.sidebarSider}
     >
-      <div style={{ 
-        height: 64, 
-        margin: 16, 
-        background: 'rgba(255, 255, 255, 0.2)',
-        display: collapsed ? 'none' : 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: '1.2rem'
-      }}>
-        ADMIN DASHBOARD
+      <div className={styles.sidebarWrapper}>
+        <div className={`${styles.sidebarLogo} ${collapsed ? styles.collapsed : ''}`}>
+          <div className={styles.logoIcon}>A</div>
+          <span className={styles.logoText}>ADMIN PANEL</span>
+        </div>
+        
+        <Menu 
+          theme="dark" 
+          selectedKeys={[pathname]} 
+          mode="inline" 
+          items={topMenuItems}
+          className={styles.topMenu}
+        />
+        
+        <Menu 
+          theme="dark" 
+          selectable={false}
+          mode="inline" 
+          items={bottomMenuItems} 
+          onClick={handleMenuClick}
+          className={styles.bottomMenu}
+        />
       </div>
-      <Menu 
-        theme="dark" 
-        selectedKeys={[pathname]} 
-        mode="inline" 
-        items={menuItems} 
-        onClick={handleMenuClick}
-      />
     </Sider>
   );
 };

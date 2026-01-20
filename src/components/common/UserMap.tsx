@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import styles from "./UserMap.module.scss";
 
 const UserMap = () => {
     const [isClient, setIsClient] = useState(false);
@@ -31,12 +32,12 @@ const UserMap = () => {
     if (!isClient) return null;
 
     return (
-        <div style={{ height: "400px", width: "100%", borderRadius: "8px", overflow: "hidden" }}>
+        <div className={styles.mapWrapper}>
             <MapContainer
                 center={[20, 0]}
                 zoom={2}
                 scrollWheelZoom={false}
-                style={{ height: "100%", width: "100%" }}
+                className={styles.mapContainer}
             >
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

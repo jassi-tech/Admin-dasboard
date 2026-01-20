@@ -1,0 +1,44 @@
+@use '@/styles/variables' as *;
+
+.settingsWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+        padding: 0 $spacing-md;
+    }
+}
+
+.sectionCard {
+    margin-top: $spacing-lg;
+
+    @media (max-width: $screen-sm) {
+        margin-top: $spacing-md;
+    }
+}
+
+.dangerCard {
+    margin-top: $spacing-lg;
+    border-color: $error-color !important;
+
+    .dangerTitle {
+        color: $error-color !important;
+    }
+
+    .dangerAction {
+        margin-top: $spacing-md;
+    }
+}
+
+.settingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $screen-xs) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-sm;
+    }
+}

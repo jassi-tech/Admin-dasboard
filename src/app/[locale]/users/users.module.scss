@@ -1,0 +1,40 @@
+@use '@/styles/variables' as *;
+
+.usersHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    @media (max-width: $screen-sm) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: $spacing-md;
+
+        .title {
+            font-size: 1.5rem !important;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .title {
+        margin: 0 !important;
+    }
+}
+
+.modalFooter {
+    width: 100%;
+    justify-content: flex-end;
+
+    @media (max-width: $screen-xs) {
+        button {
+            flex: 1;
+        }
+    }
+}

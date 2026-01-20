@@ -1,0 +1,105 @@
+@use '@/styles/variables' as *;
+
+.sidebarSider {
+    height: 100vh !important;
+    position: sticky !important;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow: hidden !important; // Prevent sider from having its own scrollbar
+}
+
+.sidebarWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebarLogo {
+    height: 64px;
+    padding: 0 $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $spacing-sm;
+    margin: $spacing-md 0;
+    overflow: hidden;
+
+    .logoIcon {
+        min-width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, $primary-color 0%, $primary-hover 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-inverse;
+        font-weight: 800;
+        font-size: 1.4rem;
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+    }
+
+    .logoText {
+        color: $text-inverse;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        opacity: 1;
+        transition: opacity $transition-base;
+    }
+
+    &.collapsed {
+        justify-content: center;
+        padding: 0;
+
+        .logoText {
+            opacity: 0;
+            width: 0;
+            display: none;
+        }
+    }
+}
+
+.topMenu {
+    flex: 1;
+    border-right: 0 !important;
+    background: transparent !important;
+    overflow-y: auto; // Allow scrolling only for the menu items
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+    }
+}
+
+.bottomMenu {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 0 !important;
+    background: transparent !important;
+    margin-bottom: 0; // Remove margin to avoid pusher bottom out
+}
+
+:global(.ant-menu-dark.ant-menu-inline .ant-menu-item) {
+    height: 48px;
+    line-height: 48px;
+    margin: $spacing-xs $spacing-md;
+    width: calc(100% - 24px);
+    border-radius: $spacing-sm;
+}
+
+:global(.ant-menu-dark .ant-menu-item-selected) {
+    background-color: $primary-color !important;
+}
+
+:global(.ant-layout-sider-children) {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}

@@ -3,16 +3,17 @@
 import React from "react";
 import { Card } from "antd";
 import type { CardProps } from "antd";
+import styles from "./AdminCard.module.scss";
 
 interface AdminCardProps extends CardProps {
   children: React.ReactNode;
 }
 
-const AdminCard: React.FC<AdminCardProps> = ({ children, ...props }) => {
+const AdminCard: React.FC<AdminCardProps> = ({ children, className, ...props }) => {
   return (
     <Card 
       variant="borderless" 
-      style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+      className={`${styles.adminCard} ${className || ''}`}
       {...props}
     >
       {children}

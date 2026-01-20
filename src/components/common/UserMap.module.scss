@@ -1,0 +1,17 @@
+@use '@/styles/variables' as *;
+
+.mapWrapper {
+    height: 400px;
+    width: 100%;
+    border-radius: $spacing-sm;
+    overflow: hidden;
+
+    @media (max-width: $screen-sm) {
+        height: 300px;
+    }
+}
+
+.mapContainer {
+    height: 100%;
+    width: 100%;
+}

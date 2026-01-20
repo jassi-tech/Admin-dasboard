@@ -1,0 +1,32 @@
+@use '@/styles/variables' as *;
+
+.otpModalContainer {
+    text-align: center;
+    padding: $spacing-md 0;
+
+    .modalIcon {
+        font-size: 48px;
+        color: $error-color;
+        margin-bottom: $spacing-md;
+    }
+
+    .modalTitle {
+        margin-bottom: $spacing-sm !important;
+    }
+
+    .modalDescription {
+        margin-bottom: $spacing-lg;
+        display: block;
+        color: $text-secondary;
+    }
+
+    .otpWrapper {
+        margin-bottom: $spacing-lg;
+        display: flex;
+        justify-content: center;
+
+        :global(.ant-input-otp) {
+            gap: $spacing-sm !important;
+        }
+    }
+}

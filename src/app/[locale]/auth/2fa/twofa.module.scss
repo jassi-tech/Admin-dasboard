@@ -1,0 +1,32 @@
+@use '@/styles/variables' as *;
+
+.twofaWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: $background-color;
+    padding: $spacing-md;
+}
+
+.twofaCard {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.otpContainer {
+    margin-bottom: $spacing-lg;
+
+    @media (max-width: $screen-xs) {
+        margin-bottom: $spacing-md;
+
+        :global(.ant-input-otp) {
+            gap: $spacing-sm !important;
+        }
+    }
+}
+
+.resendButton {
+    margin-top: $spacing-md;
+}

@@ -1,0 +1,34 @@
+@use '@/styles/variables' as *;
+
+.dashboardHeader {
+    margin-bottom: $spacing-lg;
+
+    @media (max-width: $screen-sm) {
+        font-size: 1.5rem !important;
+        margin-bottom: $spacing-md;
+    }
+}
+
+.loadingWrapper,
+.errorWrapper {
+    padding: 50px;
+    text-align: center;
+}
+
+.mapRow {
+    margin-top: $spacing-lg;
+
+    @media (max-width: $screen-md) {
+        margin-top: $spacing-md;
+    }
+}
+
+.mapPlaceholder {
+    height: 400px;
+    background: $background-color;
+    border-radius: $spacing-sm;
+
+    @media (max-width: $screen-sm) {
+        height: 300px;
+    }
+}

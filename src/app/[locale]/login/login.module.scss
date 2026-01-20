@@ -1,0 +1,37 @@
+@use '@/styles/variables' as *;
+
+.loginWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: $background-color;
+    padding: $spacing-md;
+}
+
+.loginCard {
+    width: 100%;
+    max-width: 400px;
+}
+
+.loginHeader {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+
+    @media (max-width: $screen-xs) {
+        margin-bottom: $spacing-md;
+
+        h2 {
+            font-size: 1.5rem !important;
+        }
+    }
+}
+
+.forgotPassword {
+    float: right;
+    color: $primary-color;
+
+    &:hover {
+        color: $primary-hover;
+    }
+}

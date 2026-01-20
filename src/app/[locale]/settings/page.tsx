@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import MainLayout from '@/components/layout/MainLayout';
 import AdminCard from '@/components/common/AdminCard';
 import { UserOutlined, LockOutlined, BellOutlined, GlobalOutlined } from '@ant-design/icons';
+import styles from './settings.module.scss';
 
 const { Title, Text } = Typography;
 
@@ -31,7 +32,7 @@ const SettingsPage = () => {
 
     return (
         <MainLayout>
-            <div style={{ maxWidth: 800, margin: '0 auto' }}>
+            <div className={styles.settingsWrapper}>
                 <Title level={2}>{t('title')}</Title>
                 <Text type="secondary">{t('subtitle')}</Text>
                 
@@ -62,7 +63,7 @@ const SettingsPage = () => {
                     </Form>
                 </AdminCard>
 
-                <AdminCard style={{ marginTop: 24 }}>
+                <AdminCard className={styles.sectionCard}>
                     <Title level={4}><LockOutlined /> {t('security_settings')}</Title>
                     <Form layout="vertical" onFinish={onFinish}>
                         <Form.Item label={t('current_password')} name="currentPassword">
@@ -86,22 +87,22 @@ const SettingsPage = () => {
                     </Form>
                 </AdminCard>
 
-                <AdminCard style={{ marginTop: 24 }}>
+                <AdminCard className={styles.sectionCard}>
                     <Title level={4}><BellOutlined /> {t('notification_settings')}</Title>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                    <div className={styles.settingItem}>
                         <Text>{t('email_notifications')}</Text>
                         <Switch defaultChecked />
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                    <div className={styles.settingItem}>
                         <Text>{t('push_notifications')}</Text>
                         <Switch defaultChecked />
                     </div>
                 </AdminCard>
                 
-                <AdminCard style={{ marginTop: 24, borderColor: '#ff4d4f' }}>
-                    <Title level={4} style={{ color: '#ff4d4f' }}>{t('danger_zone')}</Title>
+                <AdminCard className={styles.dangerCard}>
+                    <Title level={4} className={styles.dangerTitle}>{t('danger_zone')}</Title>
                     <Text>{t('danger_description')}</Text>
-                    <div style={{ marginTop: 16 }}>
+                    <div className={styles.dangerAction}>
                         <Button danger>{t('delete_account')}</Button>
                     </div>
                 </AdminCard>
