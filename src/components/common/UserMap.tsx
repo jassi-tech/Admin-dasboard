@@ -21,13 +21,17 @@ const UserMap = () => {
         });
     }, []);
 
-    const locations: [number, number, string][] = [
-        [51.505, -0.09, "User 1: London"],
-        [48.8566, 2.3522, "User 2: Paris"],
-        [40.7128, -74.006, "User 3: New York"],
-        [28.6139, 77.209, "User 4: New Delhi"],
-        [35.6762, 139.6503, "User 5: Tokyo"],
-    ];
+    const [locations, setLocations] = useState<[number, number, string][]>([]);
+
+    useEffect(() => {
+        // Fetch locations from backend API
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        fetch(`${API_URL}/locations`)
+            .then((res) => res.json())
+            .then((data) => setLocations(data))
+            .catch((err) => console.error('Failed to load locations', err));
+    }, []);
+
 
     if (!isClient) return null;
 
